@@ -2,7 +2,7 @@
  * 
  * Virginiastar RTTY Library
  * Copyright 2011 Hotchkissmade
- * All rights reserved
+ * Released under the GPL
  *
  */
  
@@ -11,9 +11,13 @@
 
 RTTY::RTTY(int mark, int space) 
 : MARK_PIN(mark), SPACE_PIN(space) { 
- // Currently no init needed.
+ // No current need.
 }
 
+
+/* *********************** *
+ * Output handling [2-pin] *
+ * *********************** */
 void RTTY::mark() {
 	tone(MARK_PIN, 2125);  
     delayMicroseconds(10000);  
@@ -28,12 +32,19 @@ void RTTY::space() {
     noTone(SPACE_PIN);
 }
 
+
+/* ********************* *
+ * RTTY Protocol Helpers *
+ * ********************* */
 void RTTY::start() { space(); }
 void RTTY::stop() { mark(); mark(); }
 void RTTY::rest() { mark(); }
 
-void RTTY::badot(String message) {
-	
+
+/* ************************** *
+ * Baudot Code Implementation *
+ * ************************** */
+void RTTY::encode(String message) {
 	int length = message.length();
 	
 	for (int i = 0; i < length; i++) {
@@ -152,129 +163,129 @@ void RTTY::badot(String message) {
 				start(); space(); space(); mark(); space(); space(); 
 				break;
 			case '0':
-				badot('[');
+				baudot('[');
 				start(); space(); mark(); mark(); space(); mark(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case '1':
-				badot('[');
+				baudot('[');
 				start(); mark(); mark(); mark(); space(); mark(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case '2':
-				badot('[');
+				baudot('[');
 				start(); mark(); mark(); space(); space(); mark(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case '3':
-				badot('[');
+				baudot('[');
 				start(); mark(); space(); space(); space(); space(); stop();
-				badot(']');
+				baudot(']');
 				break;
 			case '4':
-				badot('[');
+				baudot('[');
 				start(); space(); mark(); space(); mark(); space(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case '5':
-				badot('[');
+				baudot('[');
 				start(); space(); space(); space(); space(); mark(); stop();
-				badot(']');
+				baudot(']');
 				break;
 			case '6':
-				badot('[');
+				baudot('[');
 				start(); mark(); space(); mark(); space(); mark(); stop();
-				badot(']');
+				baudot(']');
 				break;
 			case '7':
-				badot('[');
+				baudot('[');
 				start(); mark(); mark(); mark(); space(); space(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case '8':
-				badot('[');
+				baudot('[');
 				start(); space(); mark(); mark(); space(); space(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case '9':
-				badot('[');
+				baudot('[');
 				start(); space(); space(); space(); mark(); mark(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case '-':
-				badot('[');
+				baudot('[');
 				start(); mark(); mark(); space(); space(); space(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case '$':
-				badot('[');
+				baudot('[');
 				start(); mark(); space(); space(); mark(); space(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case '!':
-				badot('[');
+				baudot('[');
 				start(); mark(); space(); mark(); mark(); space(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case '&':
-				badot('[');
+				baudot('[');
 				start(); space(); mark(); space(); mark(); mark(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case '#':
-				badot('[');
+				baudot('[');
 				start(); space(); space(); mark(); space(); mark(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case '\'': // =)
-				badot('[');
+				baudot('[');
 				start(); mark(); mark(); space(); mark(); space(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case '(':
-				badot('[');
+				baudot('[');
 				start(); mark(); mark(); mark(); mark(); space(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case ')':
-				badot('[');
+				baudot('[');
 				start(); space(); mark(); space(); space(); mark(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case '"':
-				badot('[');
+				baudot('[');
 				start(); mark(); space(); space(); space(); mark(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case '/':
-				badot('[');
+				baudot('[');
 				start(); mark(); space(); mark(); mark(); mark(); stop(); 
-				badot(']');
+				baudot(']');
 				break;
 			case ':':
-				badot('[');
+				baudot('[');
 				start(); space(); mark(); mark(); mark(); space(); stop();
-				badot(']');
+				baudot(']');
 				break;
 			case ';':
-				badot('[');
+				baudot('[');
 				start(); space(); mark(); mark(); mark(); mark(); stop();
-				badot(']');
+				baudot(']');
 				break;
 			case '?':
-				badot('[');
+				baudot('[');
 				start(); mark(); space(); space(); mark(); mark(); stop();
-				badot(']');
+				baudot(']');
 				break;
 			case ',':
-				badot('[');
+				baudot('[');
 				start(); space(); space(); mark(); mark(); space(); stop();
-				badot(']');
+				baudot(']');
 				break;
 			case '.':
-				badot('[');
+				baudot('[');
 			    start(); space(); space(); mark(); mark(); mark(); stop();
-				badot(']');
+				baudot(']');
 				break;
 			case '[': // ITU2 FIGS
 			    start(); mark(); mark(); space(); mark(); mark();

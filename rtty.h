@@ -4,10 +4,6 @@
  * Copyright 2011 Hotchkissmade
  * Released under the GPL  
  *
- * This is and was intended to be 
- * a very static library, allowing 
- * for maximum accuracy later on.
- *
  */
  
 #ifndef rtty_h
@@ -18,7 +14,7 @@
 class RTTY {
  public:
 	 RTTY(int mark, int space);
-	 void badot(String message);
+	 void encode(String message);
 	 void rest();
  protected:
 	 void mark();

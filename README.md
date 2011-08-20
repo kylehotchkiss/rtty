@@ -20,6 +20,34 @@ Usage
 -----
 
 The best place to test this code is (Fldigi)[http://www.w1hkj.com/Fldigi.html]
-in the RTTY mode. Set your *Carrier Shift* to `170``, your *baud rate* to whatever
-you defined above, your *bits per character* to `5`(baudot), your *parity* to 
-`none`, and your stop bits to `2`.
+in the RTTY mode. Set your *Carrier Shift* to `170``, your *baud rate* to 50, 
+your *bits per character* to `5`(baudot), your *parity* to `none`, and your 
+stop bits to `2`.
+
+You will need to connect 2 wires to PWM pins on your Arduino, and then set those
+in the following, before setup(): 
+
+    `RTTY rtty(pin1, pin2);`
+
+in your main program loop, run 
+
+    `String message = "test transmission"; rtty.encode(message);`
+ 
+to send a message and run 
+
+    `do { rtty.rest(); } while (some condition);
+ 
+while you are not transmitting to avoid missing your first character and noisy
+data on the recieving end.
+
+These two wires need to be connected to a sound cable that will run into your 
+computer for testing, and into a radio for whatever purpose you will use them
+for. Remember to be respectful of others when picking a frequency, because 
+this could be broadcasting for long periods of time.
+
+About
+-----
+
+This libray was written for what I hope will be my first balloon flight. It has
+been tested and decided to stick with default transmission settings for the best
+performance in the long run.
