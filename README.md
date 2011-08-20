@@ -20,22 +20,22 @@ Usage
 -----
 
 The best place to test this code is (Fldigi)[http://www.w1hkj.com/Fldigi.html]
-in the RTTY mode. Set your *Carrier Shift* to `170``, your *baud rate* to 50, 
-your *bits per character* to `5`(baudot), your *parity* to `none`, and your 
+in the RTTY mode. Set your *Carrier Shift* to `170`, your *baud rate* to 50, 
+your *bits per character* to `5` (baudot), your *parity* to `none`, and your 
 stop bits to `2`.
 
 You will need to connect 2 wires to PWM pins on your Arduino, and then set those
 in the following, before setup(): 
 
-    `RTTY rtty(pin1, pin2);`
+    RTTY rtty(pin1, pin2);
 
 in your main program loop, run 
 
-    `String message = "test transmission"; rtty.encode(message);`
+    String message = "test transmission"; rtty.encode(message);
  
 to send a message and run 
 
-    `do { rtty.rest(); } while (some condition);
+    do { rtty.rest(); } while (some condition);
  
 while you are not transmitting to avoid missing your first character and noisy
 data on the recieving end.
