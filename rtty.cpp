@@ -163,129 +163,129 @@ void RTTY::encode(String message) {
 				start(); space(); space(); mark(); space(); space(); 
 				break;
 			case '0':
-				baudot('[');
+				encode('[');
 				start(); space(); mark(); mark(); space(); mark(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case '1':
-				baudot('[');
+				encode('[');
 				start(); mark(); mark(); mark(); space(); mark(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case '2':
-				baudot('[');
+				encode('[');
 				start(); mark(); mark(); space(); space(); mark(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case '3':
-				baudot('[');
+				encode('[');
 				start(); mark(); space(); space(); space(); space(); stop();
-				baudot(']');
+				encode(']');
 				break;
 			case '4':
-				baudot('[');
+				encode('[');
 				start(); space(); mark(); space(); mark(); space(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case '5':
-				baudot('[');
+				encode('[');
 				start(); space(); space(); space(); space(); mark(); stop();
-				baudot(']');
+				encode(']');
 				break;
 			case '6':
-				baudot('[');
+				encode('[');
 				start(); mark(); space(); mark(); space(); mark(); stop();
-				baudot(']');
+				encode(']');
 				break;
 			case '7':
-				baudot('[');
+				encode('[');
 				start(); mark(); mark(); mark(); space(); space(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case '8':
-				baudot('[');
+				encode('[');
 				start(); space(); mark(); mark(); space(); space(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case '9':
-				baudot('[');
+				encode('[');
 				start(); space(); space(); space(); mark(); mark(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case '-':
-				baudot('[');
+				encode('[');
 				start(); mark(); mark(); space(); space(); space(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case '$':
-				baudot('[');
+				encode('[');
 				start(); mark(); space(); space(); mark(); space(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case '!':
-				baudot('[');
+				encode('[');
 				start(); mark(); space(); mark(); mark(); space(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case '&':
-				baudot('[');
+				encode('[');
 				start(); space(); mark(); space(); mark(); mark(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case '#':
-				baudot('[');
+				encode('[');
 				start(); space(); space(); mark(); space(); mark(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case '\'': // =)
-				baudot('[');
+				encode('[');
 				start(); mark(); mark(); space(); mark(); space(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case '(':
-				baudot('[');
+				encode('[');
 				start(); mark(); mark(); mark(); mark(); space(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case ')':
-				baudot('[');
+				encode('[');
 				start(); space(); mark(); space(); space(); mark(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case '"':
-				baudot('[');
+				encode('[');
 				start(); mark(); space(); space(); space(); mark(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case '/':
-				baudot('[');
+				encode('[');
 				start(); mark(); space(); mark(); mark(); mark(); stop(); 
-				baudot(']');
+				encode(']');
 				break;
 			case ':':
-				baudot('[');
+				encode('[');
 				start(); space(); mark(); mark(); mark(); space(); stop();
-				baudot(']');
+				encode(']');
 				break;
 			case ';':
-				baudot('[');
+				encode('[');
 				start(); space(); mark(); mark(); mark(); mark(); stop();
-				baudot(']');
+				encode(']');
 				break;
 			case '?':
-				baudot('[');
+				encode('[');
 				start(); mark(); space(); space(); mark(); mark(); stop();
-				baudot(']');
+				encode(']');
 				break;
 			case ',':
-				baudot('[');
+				encode('[');
 				start(); space(); space(); mark(); mark(); space(); stop();
-				baudot(']');
+				encode(']');
 				break;
 			case '.':
-				baudot('[');
+				encode('[');
 			    start(); space(); space(); mark(); mark(); mark(); stop();
-				baudot(']');
+				encode(']');
 				break;
 			case '[': // ITU2 FIGS
 			    start(); mark(); mark(); space(); mark(); mark();
