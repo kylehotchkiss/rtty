@@ -48,6 +48,7 @@ this could be broadcasting for long periods of time.
 About
 -----
 
-This libray was written for what I hope will be my first balloon flight. It has
+This libray was written by Hotchkiss for what I hope will be my first balloon flight 
+([Virginiastar](http://hotchkissmade.com/blog/virginiastar/)). It has
 been tested and decided to stick with default transmission settings for the best
 performance in the long run.

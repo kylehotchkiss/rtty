@@ -38,7 +38,7 @@ void RTTY::space() {
  * ********************* */
 void RTTY::start() { space(); }
 void RTTY::stop() { mark(); mark(); }
-void RTTY::rest() { mark(); }
+void RTTY::rest() { mark(); } // Re: http://www.aa5au.com/gettingstarted/rtty_diddles_technical.htm
 
 
 /* ************************** *
