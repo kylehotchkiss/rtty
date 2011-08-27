@@ -9,9 +9,9 @@
 #include "WProgram.h"
 #include "rtty.h"
 
-RTTY::RTTY(int mark, int space, int status) 
-: MARK_PIN(mark), SPACE_PIN(space), STATUS_PIN(status) { 
- // No current need.
+RTTY::RTTY(int mark, int space) 
+: MARK_PIN(mark), SPACE_PIN(space) { 
+	// Currently Blank
 }
 
 
@@ -19,17 +19,26 @@ RTTY::RTTY(int mark, int space, int status)
  * Output handling [2-pin] *
  * *********************** */
 void RTTY::mark() {
-    tone(MARK_PIN, 2125);  
+    tone(MARK_PIN, 2295);  
     delayMicroseconds(10000);  
     delayMicroseconds(10150); 
     noTone(MARK_PIN);
 }
 
 void RTTY::space() {
-    tone(SPACE_PIN, 2295);  
+    tone(SPACE_PIN, 2125);  
     delayMicroseconds(10000);  
-    delayMicroseconds(10150);    
+    delayMicroseconds(10150);   
     noTone(SPACE_PIN);
+}
+
+void RTTY::stop() {
+	  /* 1.5 Stopbits */
+		tone(MARK_PIN, 2295);
+		delayMicroseconds(10000);  
+    delayMicroseconds(10150);  
+    delayMicroseconds(10150);  
+    noTone(MARK_PIN);
 }
 
 
@@ -37,7 +46,6 @@ void RTTY::space() {
  * RTTY Protocol Helpers *
  * ********************* */
 void RTTY::start() { space(); }
-void RTTY::stop() { mark(); mark(); }
 void RTTY::rest() { mark(); } // Re: http://www.aa5au.com/gettingstarted/rtty_diddles_technical.htm
 
 
@@ -46,8 +54,6 @@ void RTTY::rest() { mark(); } // Re: http://www.aa5au.com/gettingstarted/rtty_di
  * ************************** */
 void RTTY::encode(String message) {
 	int length = message.length();
-	
-         // digitalWrite(STATUS_PIN, HIGH);
 
 	for (int i = 0; i < length; i++) {
 		switch(message[i]) {
@@ -302,6 +308,4 @@ void RTTY::encode(String message) {
 		
 		stop();
 	}
-
-         // digitalWrite(STATUS_PIN, LOW);
 }

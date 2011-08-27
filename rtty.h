@@ -19,8 +19,8 @@ class RTTY {
  protected:
 	 void mark();
 	 void space();
-	 void start();
 	 void stop();
+	 void start();
 	 int MARK_PIN;
 	 int SPACE_PIN;
 };
