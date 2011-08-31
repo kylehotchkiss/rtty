@@ -19,25 +19,21 @@ RTTY::RTTY(int mark, int space)
  * Output handling [2-pin] *
  * *********************** */
 void RTTY::mark() {
-    tone(MARK_PIN, 2295);  
-    delayMicroseconds(10000);  
-    delayMicroseconds(10150); 
+    tone(MARK_PIN, 2295);   
+    delay(20);
     noTone(MARK_PIN);
 }
 
 void RTTY::space() {
     tone(SPACE_PIN, 2125);  
-    delayMicroseconds(10000);  
-    delayMicroseconds(10150);   
+    delay(20);
     noTone(SPACE_PIN);
 }
 
 void RTTY::stop() {
 	  /* 1.5 Stopbits */
 		tone(MARK_PIN, 2295);
-		delayMicroseconds(10000);  
-    delayMicroseconds(10150);  
-    delayMicroseconds(10150);  
+    delay(30);
     noTone(MARK_PIN);
 }
 
