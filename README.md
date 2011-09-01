@@ -7,15 +7,16 @@ that you may attach your Arduino to an UHF/VHF radio for extended range.
 
 Because Arduino does not multitask natively, this code will render your 
 Arduino useless for all other functions while transmitting. It is probably
-best if you add another Arduino to your project to handle priority logic. It's
+best if you add another Arduino to your project to handle priority logic. An 
+omniboot processor is about $5 so this shouldn't be too much. It's
 strongly recommended that you avoid using interrupts, but they need not be 
-disabled. A omniboot processor is about $5 so this shouldn't be too much.
+disabled.
 
 Usage
 -----
 
-To start, you will need to get a stripped headphone wire, or another cable with an 
-audio jack. Cut off one of the plugs, preferably the one with the most wear. Strip 
+To start, you will need to get a headphone wire, or another cable with an 
+audio jack. Cut off one end of the cable, either the earbuds or one of the jacks. Strip 
 the cable down, push the shielding back, and figure out how to get those two wires
 connected to your breadboard. I soldered breakaway headers onto mine. You may want
 to ground the shielding wire, but it works without it. Throw some resistors in the 
