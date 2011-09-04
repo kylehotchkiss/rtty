@@ -15,8 +15,8 @@ disabled.
 Usage
 -----
 
-To start, you will need to get a headphone wire, or another cable with an 
-audio jack. Cut off one end of the cable, either the earbuds or one of the jacks. Strip 
+To start, you will need to get a headphone wire, or another cable with an audio 
+jack. Cut off one end of the cable, either the earbuds or one of the jacks. Strip 
 the cable down, push the shielding back, and figure out how to get those two wires
 connected to your breadboard. I soldered breakaway headers onto mine. You may want
 to ground the shielding wire, but it works without it. Throw some resistors in the 

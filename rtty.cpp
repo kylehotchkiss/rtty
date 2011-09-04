@@ -32,7 +32,7 @@ void RTTY::space() {
 
 void RTTY::stop() {
 	  /* 1.5 Stopbits */
-		tone(MARK_PIN, 2295);
+    tone(MARK_PIN, 2295);
     delay(30);
     noTone(MARK_PIN);
 }
@@ -49,6 +49,8 @@ void RTTY::rest() { mark(); } // Re: http://www.aa5au.com/gettingstarted/rtty_di
  * Baudot Code Implementation *
  * ************************** */
 void RTTY::encode(String message) {
+    noTone(MARK_PIN); // Diddles lolz
+
 	int length = message.length();
 
 	for (int i = 0; i < length; i++) {
@@ -304,4 +306,6 @@ void RTTY::encode(String message) {
 		
 		stop();
 	}
+
+	tone(MARK_PIN, 2295); // Diddles lolz
 }
