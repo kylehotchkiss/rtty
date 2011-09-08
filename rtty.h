@@ -15,7 +15,6 @@ class RTTY {
  public:
 	 RTTY(int mark, int space);
 	 void encode(String message);
-	 void rest();
  protected:
 	 void mark();
 	 void space();
