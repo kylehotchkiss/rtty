@@ -31,7 +31,7 @@ void RTTY::space() {
 }
 
 void RTTY::stop() {
-	  /* 1.5 Stopbits */
+    /* 1.5 Stopbits */
     tone(MARK_PIN, 2295);
     delay(30);
     noTone(MARK_PIN);
@@ -41,15 +41,16 @@ void RTTY::stop() {
 /* ********************* *
  * RTTY Protocol Helpers *
  * ********************* */
-void RTTY::start() { space(); }
-void RTTY::rest() { mark(); } // Re: http://www.aa5au.com/gettingstarted/rtty_diddles_technical.htm
+void RTTY::start() { 
+	space(); 
+}
 
 
 /* ************************** *
  * Baudot Code Implementation *
  * ************************** */
 void RTTY::encode(String message) {
-    noTone(MARK_PIN); // Diddles lolz
+    noTone(MARK_PIN); // Keeps squelch locked & data clean.
 
 	int length = message.length();
 
@@ -307,5 +308,5 @@ void RTTY::encode(String message) {
 		stop();
 	}
 
-	tone(MARK_PIN, 2295); // Diddles lolz
+	tone(MARK_PIN, 2295);
 }
