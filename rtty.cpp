@@ -9,6 +9,7 @@
 #include "WProgram.h"
 #include "rtty.h"
 
+
 RTTY::RTTY(int mark, int space) 
 : MARK_PIN(mark), SPACE_PIN(space) { 
 	// Currently Blank
@@ -31,7 +32,11 @@ void RTTY::space() {
 }
 
 void RTTY::stop() {
+<<<<<<< HEAD
     /* 1.5 Stopbits */
+=======
+	/* 1.5 Stopbits */
+>>>>>>> Dropped rest() in support of an automated Diddle. Beeps continuously on idle now, which may be interfered with Arduino interrupts. Needs testing.
     tone(MARK_PIN, 2295);
     delay(30);
     noTone(MARK_PIN);
@@ -41,16 +46,24 @@ void RTTY::stop() {
 /* ********************* *
  * RTTY Protocol Helpers *
  * ********************* */
+<<<<<<< HEAD
 void RTTY::start() { 
 	space(); 
 }
+=======
+void RTTY::start() { space(); }
+>>>>>>> Dropped rest() in support of an automated Diddle. Beeps continuously on idle now, which may be interfered with Arduino interrupts. Needs testing.
 
 
 /* ************************** *
  * Baudot Code Implementation *
  * ************************** */
 void RTTY::encode(String message) {
+<<<<<<< HEAD
     noTone(MARK_PIN); // Keeps squelch locked & data clean.
+=======
+    noTone(MARK_PIN); // Diddles (Re: http://www.aa5au.com/gettingstarted/rtty_diddles_technical.htm)
+>>>>>>> Dropped rest() in support of an automated Diddle. Beeps continuously on idle now, which may be interfered with Arduino interrupts. Needs testing.
 
 	int length = message.length();
 
@@ -308,5 +321,9 @@ void RTTY::encode(String message) {
 		stop();
 	}
 
+<<<<<<< HEAD
 	tone(MARK_PIN, 2295);
+=======
+	tone(MARK_PIN, 2295); // Diddles
+>>>>>>> Dropped rest() in support of an automated Diddle. Beeps continuously on idle now, which may be interfered with Arduino interrupts. Needs testing.
 }
