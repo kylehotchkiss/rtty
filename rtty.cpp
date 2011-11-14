@@ -32,9 +32,7 @@ void RTTY::space() {
 }
 
 void RTTY::stop() {
-<<<<<<< HEAD
     /* 1.5 Stopbits */
-=======
 	/* 1.5 Stopbits */
 >>>>>>> Dropped rest() in support of an automated Diddle. Beeps continuously on idle now, which may be interfered with Arduino interrupts. Needs testing.
     tone(MARK_PIN, 2295);
@@ -321,9 +319,8 @@ void RTTY::encode(String message) {
 		stop();
 	}
 
-<<<<<<< HEAD
+
 	tone(MARK_PIN, 2295);
-=======
 	tone(MARK_PIN, 2295); // Diddles
->>>>>>> Dropped rest() in support of an automated Diddle. Beeps continuously on idle now, which may be interfered with Arduino interrupts. Needs testing.
+## Dropped rest() in support of an automated Diddle. Beeps continuously on idle now, which may be interfered with Arduino interrupts. Needs testing.
 }
