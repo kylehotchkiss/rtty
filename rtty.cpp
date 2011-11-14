@@ -308,5 +308,5 @@ void RTTY::encode(String message) {
 		stop();
 	}
 
-	tone(MARK_PIN, 2295);
+	tone(MARK_PIN, 2295); // Diddles
 }
