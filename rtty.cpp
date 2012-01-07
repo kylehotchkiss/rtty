@@ -6,7 +6,7 @@
  *
  */
  
-#include "WProgram.h"
+#include "Arduino.h"
 #include "rtty.h"
 
 RTTY::RTTY(int mark, int space) 
@@ -50,7 +50,7 @@ void RTTY::start() {
  * Baudot Code Implementation *
  * ************************** */
 void RTTY::encode(String message) {
-    noTone(MARK_PIN); // Keeps squelch locked & data clean.
+    //noTone(MARK_PIN); // Keeps squelch locked & data clean.
 
 	int length = message.length();
 
@@ -170,129 +170,129 @@ void RTTY::encode(String message) {
 				start(); space(); space(); mark(); space(); space(); 
 				break;
 			case '0':
-				encode('[');
+				encode("[");
 				start(); space(); mark(); mark(); space(); mark(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case '1':
-				encode('[');
+				encode("[");
 				start(); mark(); mark(); mark(); space(); mark(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case '2':
-				encode('[');
+				encode("[");
 				start(); mark(); mark(); space(); space(); mark(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case '3':
-				encode('[');
+				encode("[");
 				start(); mark(); space(); space(); space(); space(); stop();
-				encode(']');
+				encode("]");
 				break;
 			case '4':
-				encode('[');
+				encode("[");
 				start(); space(); mark(); space(); mark(); space(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case '5':
-				encode('[');
+				encode("[");
 				start(); space(); space(); space(); space(); mark(); stop();
-				encode(']');
+				encode("]");
 				break;
 			case '6':
-				encode('[');
+				encode("[");
 				start(); mark(); space(); mark(); space(); mark(); stop();
-				encode(']');
+				encode("]");
 				break;
 			case '7':
-				encode('[');
+				encode("[");
 				start(); mark(); mark(); mark(); space(); space(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case '8':
-				encode('[');
+				encode("[");
 				start(); space(); mark(); mark(); space(); space(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case '9':
-				encode('[');
+				encode("[");
 				start(); space(); space(); space(); mark(); mark(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case '-':
-				encode('[');
+				encode("[");
 				start(); mark(); mark(); space(); space(); space(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case '$':
-				encode('[');
+				encode("[");
 				start(); mark(); space(); space(); mark(); space(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case '!':
-				encode('[');
+				encode("[");
 				start(); mark(); space(); mark(); mark(); space(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case '&':
-				encode('[');
+				encode("[");
 				start(); space(); mark(); space(); mark(); mark(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case '#':
-				encode('[');
+				encode("[");
 				start(); space(); space(); mark(); space(); mark(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case '\'': // =)
-				encode('[');
+				encode("[");
 				start(); mark(); mark(); space(); mark(); space(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case '(':
-				encode('[');
+				encode("[");
 				start(); mark(); mark(); mark(); mark(); space(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case ')':
-				encode('[');
+				encode("[");
 				start(); space(); mark(); space(); space(); mark(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case '"':
-				encode('[');
+				encode("[");
 				start(); mark(); space(); space(); space(); mark(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case '/':
-				encode('[');
+				encode("[");
 				start(); mark(); space(); mark(); mark(); mark(); stop(); 
-				encode(']');
+				encode("]");
 				break;
 			case ':':
-				encode('[');
+				encode("[");
 				start(); space(); mark(); mark(); mark(); space(); stop();
-				encode(']');
+				encode("]");
 				break;
 			case ';':
-				encode('[');
+				encode("[");
 				start(); space(); mark(); mark(); mark(); mark(); stop();
-				encode(']');
+				encode("]");
 				break;
 			case '?':
-				encode('[');
+				encode("[");
 				start(); mark(); space(); space(); mark(); mark(); stop();
-				encode(']');
+				encode("]");
 				break;
 			case ',':
-				encode('[');
+				encode("[");
 				start(); space(); space(); mark(); mark(); space(); stop();
-				encode(']');
+				encode("]");
 				break;
 			case '.':
-				encode('[');
+				encode("[");
 			    start(); space(); space(); mark(); mark(); mark(); stop();
-				encode(']');
+				encode("]");
 				break;
 			case '[': // ITU2 FIGS
 			    start(); mark(); mark(); space(); mark(); mark();
@@ -308,5 +308,5 @@ void RTTY::encode(String message) {
 		stop();
 	}
 
-	tone(MARK_PIN, 2295); // Diddles
+	//tone(MARK_PIN, 2295); // Diddles
 }
