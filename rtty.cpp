@@ -50,11 +50,14 @@ void RTTY::start() {
  * Baudot Code Implementation *
  * ************************** */
 void RTTY::encode(String message) {
-    //noTone(MARK_PIN); // Keeps squelch locked & data clean.
+	tone(MARK_PIN, 2295);
+	delay(1000);
+    noTone(MARK_PIN);
 
 	int length = message.length();
 
 	for (int i = 0; i < length; i++) {
+		
 		switch(message[i]) {
 			case 'a':
 			case 'A':
@@ -307,6 +310,4 @@ void RTTY::encode(String message) {
 		
 		stop();
 	}
-
-	//tone(MARK_PIN, 2295); // Diddles
 }

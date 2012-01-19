@@ -55,4 +55,5 @@ About
 
 This libray was written by Hotchkiss for what I hope will be my first balloon flight 
 ([Virginiastar](http://hotchkissmade.com/blog/virginiastar/)). It has
-been tested over wire and works well. Radio test
+been tested over wire and works well. Radio testing is just beginning, but as long as
+your squelsh in FLDIGI is up, singals should come through with fair accuracy.
