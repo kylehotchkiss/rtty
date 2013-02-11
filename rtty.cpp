@@ -19,22 +19,81 @@ RTTY::RTTY(int mark, int space)
  * Output handling [2-pin] *
  * *********************** */
 void RTTY::mark() {
-    tone(MARK_PIN, 2295);   
-    delay(20);
-    noTone(MARK_PIN);
+	int time = 218; 
+
+	digitalWrite(4, HIGH);
+	delayMicroseconds(time);
+	digitalWrite(4, LOW);
+	digitalWrite(5, HIGH);
+	delayMicroseconds(time);
+	digitalWrite(5, LOW);
+	digitalWrite(6, HIGH);
+	delayMicroseconds(time);
+	digitalWrite(6, LOW);
+	digitalWrite(7, HIGH); 
+	delayMicroseconds(time);
+	digitalWrite(7, LOW);
+	digitalWrite(6, HIGH);
+	delayMicroseconds(time);
+	digitalWrite(6, LOW);
+	digitalWrite(5, HIGH);
+	delayMicroseconds(time);
+	digitalWrite(5, LOW);
+	digitalWrite(4, HIGH);
+	delayMicroseconds(time);
+	digitalWrite(4, LOW);	
 }
 
 void RTTY::space() {
-    tone(SPACE_PIN, 2125);  
-    delay(20);
-    noTone(SPACE_PIN);
+	int time = 128; 
+	
+	digitalWrite(4, HIGH);
+	delayMicroseconds(time);
+	digitalWrite(4, LOW);
+	digitalWrite(5, HIGH);
+	delayMicroseconds(time);
+	digitalWrite(5, LOW);
+	digitalWrite(6, HIGH);
+	delayMicroseconds(time);
+	digitalWrite(6, LOW);
+	digitalWrite(7, HIGH); 
+	delayMicroseconds(time);
+	digitalWrite(7, LOW);
+	digitalWrite(6, HIGH);
+	delayMicroseconds(time);
+	digitalWrite(6, LOW);
+	digitalWrite(5, HIGH);
+	delayMicroseconds(time);
+	digitalWrite(5, LOW);
+	digitalWrite(4, HIGH);
+	delayMicroseconds(time);
+	digitalWrite(4, LOW);
 }
 
 void RTTY::stop() {
-    /* 1.5 Stopbits */
-    tone(MARK_PIN, 2295);
-    delay(30);
-    noTone(MARK_PIN);
+	int time = 218; 
+    
+    digitalWrite(4, HIGH);
+    delayMicroseconds(time);
+    digitalWrite(4, LOW);
+    digitalWrite(5, HIGH);
+    delayMicroseconds(time);
+    digitalWrite(5, LOW);
+    digitalWrite(6, HIGH);
+    delayMicroseconds(time);
+    digitalWrite(6, LOW);
+    digitalWrite(7, HIGH); 
+    delayMicroseconds(time);
+    digitalWrite(7, LOW);
+    digitalWrite(6, HIGH);
+    delayMicroseconds(time);
+    digitalWrite(6, LOW);
+    digitalWrite(5, HIGH);
+    delayMicroseconds(time);
+    digitalWrite(5, LOW);
+    digitalWrite(4, HIGH);
+    delayMicroseconds(time);
+    digitalWrite(4, LOW);	
 }
 
 
@@ -50,9 +109,9 @@ void RTTY::start() {
  * Baudot Code Implementation *
  * ************************** */
 void RTTY::encode(String message) {
-	tone(MARK_PIN, 2295);
-	delay(1000);
-    noTone(MARK_PIN);
+	//tone(MARK_PIN, 2295);
+	//delay(1000);
+    //noTone(MARK_PIN);
 
 	int length = message.length();
 
